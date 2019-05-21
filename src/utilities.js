@@ -38,3 +38,44 @@ export const findApproxValue = ( arr, value, bottom = 0, top = arr.length - 1 ) 
 	}
 	return bottom;
 };
+export const maxValue = ( arr ) => {
+	let maxValue = arr[ 0 ];
+	const length = arr.length;
+	let index = 0;
+
+	for ( let i = 1; i < length; i += 1 ) {
+		const maxValueCandidate = arr[ i ];
+
+		if ( maxValueCandidate > maxValue ) {
+			maxValue = maxValueCandidate;
+			index = i;
+		}
+	}
+	return { maxValue, index };
+};
+export const quickSort = arr => {
+	const length = arr.length;
+	let less = [];
+	let more = [];
+	const pivotList = [];
+
+	if ( length <= 1 ) {
+		return arr;
+	}
+
+	const pivot = arr[ 0 ];
+
+	for ( let i of arr ) {
+		if ( i < pivot ) {
+			less.push( i );
+		} else if ( i > pivot ) {
+			more.push( i );
+		} else {
+			pivotList.push( i );
+		}
+	}
+
+	less = quickSort( less );
+	more = quickSort( more );
+	return [ ...less, ...pivotList, ...more ];
+};
