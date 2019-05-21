@@ -24,3 +24,17 @@ export const insertionSort = ( arr, descending ) => {
 		}
 	}
 };
+export const findApproxValue = ( arr, value, bottom = 0, top = arr.length - 1 ) => {
+	if ( top > bottom ) {
+		const mid = Math.floor( ( top - bottom ) / 2 + bottom );
+		const currentValue = arr[ mid ];
+	
+		if ( currentValue === value ) {
+			return mid;
+		} else if ( currentValue > value ) {
+			return findApproxValue( arr, value, bottom, mid - 1 );
+		}
+		return findApproxValue( arr, value, mid + 1, top );
+	}
+	return bottom;
+};
