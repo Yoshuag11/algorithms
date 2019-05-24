@@ -1,0 +1,37 @@
+/* Add your css styles here */
+body {
+	margin: 0;
+}
+.container {
+	background-color: blue;
+	display: flex;
+	height: 140px;
+}
+.sub-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+}
+.item {
+	/* order: 1; */
+	flex-grow: 1;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+@media (min-width: 361px) and (max-width: 720px){
+	.container {
+		flex-wrap: wrap;
+	}
+	.item.sub-container {
+		/* color: black; */
+		flex-basis: 49%;
+		/* flex: 1 100%; */
+	}
+}
+@media (max-width: 360px) {
+	.container {
+		flex-direction: column;
+		height: 300px;
+	}
+}

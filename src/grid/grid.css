@@ -1,0 +1,32 @@
+/* Add your css styles here */
+body {
+	margin: 0;
+}
+.container {
+	background-color: blue;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 100px;
+}
+.sub-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+}
+.item {
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+@media (max-width: 720px) {
+	.container {
+		 grid-template-columns: 1fr 1fr;
+		 grid-template-rows: 100px 100px;
+	}
+}
+@media (max-width: 360px) {
+	.container {
+		 grid-template-columns: 1fr;
+		 grid-template-rows: 100px 100px 100px 100px;
+	}
+}
